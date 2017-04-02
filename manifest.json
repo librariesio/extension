@@ -1,0 +1,24 @@
+{
+  "name": "Libraries.io",
+  "version": "1.0",
+  "description": "Shows extra information about open source projects",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "page_action" :
+  {
+    "default_icon" : "icon-48.png",
+    "default_title" : "There's a 'G' in this URL!",
+    "default_popup": "popup.html"
+  },
+  "permissions" : [
+    "declarativeContent",
+    "activeTab",
+    "https://libraries.io/"
+  ],
+  "icons" : {
+    "128" : "icon-128.png"
+  },
+  "manifest_version": 2
+}
