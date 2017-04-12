@@ -2,20 +2,45 @@
 <html>
   <head>
     <title>Libraries.io Extension's Popup</title>
-    <style>
-      body {
-        font-size: 14px;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      }
-      #status{
-        width: 300px;
-      }
-    </style>
+    <link rel="stylesheet" href="popup.css">
     <script src="jquery-3.2.0.min.js"></script>
+    <script src="mustache.min.js"></script>
     <script src="popup.js"></script>
   </head>
   <body>
-    <div id="status">Loading...</div>
+    <div class="navbar"></div>
+    <div id="status">
+      <img src="spinner.svg" alt="Loading" class='spinner'>
+    </div>
     <ul id='projects'></ul>
+
+    <script id="project-template" type="x-tmpl-mustache">
+      <h2><a href="{{url}}" target="_blank">{{ name }}</a></h2>
+      <p>{{project.description}}</p>
+      <ul>
+        <li>SourceRank: <a href="{{url}}/sourcerank" target="_blank">{{project.rank}}</a></li>
+        <li>Stars: {{project.stars}}</li>
+        <li>Forks: {{project.forks}}</li>
+        <li>Language: {{project.language}}</li>
+        <li>Latest release: {{project.latest_release_published_at}}</li>
+        <li>License: {{project.normalized_licenses}}</li>
+        <li>Repo: <a href="{{project.repository_url}}" target="_blank">{{project.repository_url}}</a></li>
+        <li>Homepage: <a href="{{project.homepage}}" target="_blank">{{project.homepage}}</a></li>
+      </ul>
+    </script>
+    <script id="repo-template" type="x-tmpl-mustache">
+      <h3><a href="{{librariesUrl}}" target="_blank">{{ name }}</a></h3>
+      <p>{{project.description}}</p>
+
+      <ul>
+        <li>SourceRank: {{project.rank}}</li>
+        <li>License: {{project.license}}</li>
+        <li>SCM: {{project.scm}}</li>
+        <li>Size: {{project.size}}kb</li>
+        <li>Created: {{project.created_at}}</li>
+        <li>Contributors: {{project.contributions_count}}</li>
+      </ul>
+
+    </script>
   </body>
 </html>

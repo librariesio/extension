@@ -57,6 +57,12 @@ function parseRepoInfo(url) {
   }
 }
 
+function loadTemplate(selector, data) {
+  var template = $(selector).html();
+  Mustache.parse(template);
+  return Mustache.render(template, data);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   getCurrentTabUrl(function(url) {
     var info = parsePackageInfo(url)
@@ -65,16 +71,27 @@ document.addEventListener('DOMContentLoaded', function() {
       var librariesUrl = 'https://libraries.io/'+info.platform + '/' + encodeURIComponent(info.name)
 
       jQuery.get(api_url, function(data){
-        $('#status').html('<a href="'+librariesUrl+'" target="_blank">'+info.name + '</a><p>' + data.description + '</p>' + ' SourceRank: '+ data.rank)
+        var html = loadTemplate('#project-template', {
+          name: info.name,
+          url: librariesUrl,
+          project: data
+        })
+        $('#status').html(html)
       })
     } else {
       var info = parseRepoInfo(url)
       var api_url = 'https://libraries.io/api/'+info.host_type + '/' + info.name
       var librariesUrl = 'https://libraries.io/'+info.host_type + '/' + info.name
       jQuery.get(api_url, function(data){
-        $('#status').html('<a href="'+librariesUrl+'" target="_blank">'+info.name + '</a><p>' + data.description + '</p>' + ' SourceRank: '+ data.rank)
+        var html = loadTemplate('#repo-template', {
+          name: info.name,
+          url: librariesUrl,
+          project: data
+        })
+        console.log(data)
+        $('#status').html(html)
       })
-      jQuery.get(api_url+'/projects', function(projects){
+      jQuery.get(api_url+'/projects?sort=rank', function(projects){
         jQuery.each(projects, function(index, project){
           var librariesUrl = 'https://libraries.io/'+project.platform + '/' + encodeURIComponent(project.name)
           $('#projects').append('<li>'+ project.platform + ' - <a href="'+librariesUrl+'" target="_blank">'+project.name + '</a></li>')
