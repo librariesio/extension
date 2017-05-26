@@ -1,0 +1,21 @@
+module.exports = {
+  rubygems: /rubygems\.org\/gems\/([A-Za-z0-9\-_\.]+)/i,
+  npm: /npmjs\.com\/package\/([A-Za-z0-9\-_\.]+)/i, // scoped modules: /npmjs\.com\/package\/(@[a-z0-9][\w-.]+\/)?([a-z0-9\w-.]+)/i
+  packagist: /packagist\.org\/packages\/([A-Za-z0-9\-_\.\/]+)/i,
+  pypi: /pypi\.python\.org\/pypi\/([A-Za-z0-9\-_\.]+)/i,
+  nuget: /nuget\.org\/packages\/([A-Za-z0-9\-_\.]+)/i,
+  wordpress: /wordpress\.org\/plugins\/([A-Za-z0-9\-_\.]+)/i,
+  cpan: /metacpan\.org\/release\/([A-Za-z0-9\-_\.]+)/i,
+  cocoapods: /cocoapods\.org\/pods\/([A-Za-z0-9\-_\.]+)/i,
+  cran: /cran\.r-project\.org\/web\/packages\/([A-Za-z0-9\-_\.]+)/i,
+  hackage: /hackage\.haskell\.org\/package\/([A-Za-z0-9\-_\.]+)/i,
+  atom: /atom\.io\/packages\/([A-Za-z0-9\-_\.]+)/i,
+  cargo: /crates\.io\/crates\/([A-Za-z0-9\-_\.]+)/i,
+  homebrew: /brewformulas\.org\/([A-Za-z0-9\-_\.]+)/i,
+  hex: /hex\.pm\/packages\/([A-Za-z0-9\-_\.]+)/i,
+  emacs: /melpa\.org\/#\/([A-Za-z0-9\-_\.]+)/i,
+  pub: /pub\.dartlang\.org\/packages\/([A-Za-z0-9\-_\.]+)/i,
+  dub: /code\.dlang\.org\/packages\/([A-Za-z0-9\-_\.]+)/i,
+  haxelib:/lib\.haxe\.org\/p\/([A-Za-z0-9\-_\.]+)/i,
+  inqlude: /inqlude\.org\/libraries\/([A-Za-z0-9\-_\.]+)\.html/i,
+}

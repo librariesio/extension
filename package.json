@@ -1,0 +1,17 @@
+{
+  "name": "extension",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify -g yo-yoify src/index.js > bundle.js"
+  },
+  "dependencies": {
+    "browserify": "^14.3.0",
+    "yo-yo": "^1.4.1",
+    "yo-yoify": "^3.7.3"
+  },
+  "repository": "git@github.com:librariesio/extension.git",
+  "author": "Ben Gourley <bn@grly.me>",
+  "license": "GPL3"
+}

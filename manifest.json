@@ -6,10 +6,9 @@
     "scripts": ["background.js"],
     "persistent": false
   },
-  "page_action" :
-  {
+  "page_action" : {
     "default_icon" : "icon-48.png",
-    "default_title" : "There's a 'G' in this URL!",
+    "default_title" : "Libraries.io",
     "default_popup": "popup.html"
   },
   "permissions" : [
